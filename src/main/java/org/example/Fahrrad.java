@@ -13,10 +13,11 @@ public class Fahrrad {
         this.typ = typ;
     }
 
+    @SuppressWarnings("unused")
     public int getReifengroesse() {
         return reifengroesse;
     }
-
+    @SuppressWarnings("unused")
     public String getRahmen() {
         return rahmen;
     }
