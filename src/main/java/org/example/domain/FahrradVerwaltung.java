@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FahrradVerwaltung {
-    private final List<Fahrrad> fahrradVerwaltungsListe = new ArrayList<>();
+    private final FahrradRepository fahrradVerwaltungsListe ;
 
+    public  FahrradVerwaltung(FahrradRepository fahrradRepository){
+        this.fahrradVerwaltungsListe = fahrradRepository;
+    }
     public void add(Fahrrad fahrrad){
         fahrradVerwaltungsListe.add(fahrrad);
     }
@@ -13,6 +16,6 @@ public class FahrradVerwaltung {
         fahrradVerwaltungsListe.remove(fahrrad);
     }
     public List<Fahrrad> get(){
-        return fahrradVerwaltungsListe;
+        return fahrradVerwaltungsListe.getAll();
     }
 }
