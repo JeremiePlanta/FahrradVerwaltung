@@ -2,6 +2,8 @@ package org.example;
 
 import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
+import org.example.domain.Fahrrad;
+import org.example.domain.FahrradVerwaltung;
 
 public class Main {
     @SuppressWarnings("java:S106")
