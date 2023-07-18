@@ -7,10 +7,13 @@ public class Fahrrad {
     private final String rahmen;
     private final String typ;
 
-    public Fahrrad(int reifengroesse, String rahmen, String typ) {
+    private final String gestellnummer;
+
+    public Fahrrad(int reifengroesse, String rahmen, String typ, String gestellnummer) {
         this.reifengroesse = reifengroesse;
         this.rahmen = rahmen;
         this.typ = typ;
+        this.gestellnummer = gestellnummer;
     }
 
     @SuppressWarnings("unused")
@@ -22,8 +25,14 @@ public class Fahrrad {
         return rahmen;
     }
 
+    @SuppressWarnings("unused")
     public String getTyp() {
         return typ;
+    }
+
+    @SuppressWarnings("unused")
+    public String getGestellnummer() {
+        return gestellnummer;
     }
 
     @Override
@@ -31,11 +40,11 @@ public class Fahrrad {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Fahrrad fahrrad = (Fahrrad) o;
-        return reifengroesse == fahrrad.reifengroesse && Objects.equals(rahmen, fahrrad.rahmen) && Objects.equals(typ, fahrrad.typ);
+        return reifengroesse == fahrrad.reifengroesse && Objects.equals(rahmen, fahrrad.rahmen) && Objects.equals(typ, fahrrad.typ) && Objects.equals(gestellnummer, fahrrad.gestellnummer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reifengroesse, rahmen, typ);
+        return Objects.hash(reifengroesse, rahmen, typ, gestellnummer);
     }
 }
