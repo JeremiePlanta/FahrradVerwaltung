@@ -3,18 +3,19 @@ package org.example;
 import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
 import org.example.domain.Fahrrad;
+import org.example.domain.FahrradRepository;
 import org.example.domain.FahrradVerwaltung;
+import org.example.domainservice.StammdatenService;
 import org.example.infrastructure.drivenadapter.persistence.FahrradRepositoryImpl;
 
 public class Main {
     @SuppressWarnings("java:S106")
     public static void main(String[] args) {
-        FahrradVerwaltung fahrraeder = new FahrradVerwaltung(new FahrradRepositoryImpl());
-        fahrraeder.add(new Fahrrad(28,"Carbon","Rennrad"));
-        fahrraeder.add(new Fahrrad(27,"Aluminium","MTB"));
-        fahrraeder.get().forEach(fahrrad -> System.out.println(fahrrad.getTyp()));
-        fahrraeder.delete(new Fahrrad(27,"Aluminium","MTB"));
-        fahrraeder.get().forEach(fahrrad -> System.out.println(fahrrad.getTyp()));
+        FahrradRepository fahrradRepository = new FahrradRepositoryImpl();
+        FahrradVerwaltung fahrraeder = new FahrradVerwaltung(fahrradRepository);
+        StammdatenService stammdatenService = new StammdatenService(fahrradRepository);
+        stammdatenService.initStammdaten();
+
         var jexxaMain = new JexxaMain(Main.class);
 
         jexxaMain
