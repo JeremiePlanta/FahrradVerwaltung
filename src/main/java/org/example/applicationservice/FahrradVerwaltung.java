@@ -1,4 +1,7 @@
-package org.example.domain;
+package org.example.applicationservice;
+
+import org.example.domain.Fahrrad;
+import org.example.domain.FahrradRepository;
 
 import java.util.ArrayList;
 import java.util.List;
