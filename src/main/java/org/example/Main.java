@@ -7,10 +7,12 @@ import org.example.applicationservice.FahrradVerwaltung;
 import org.example.domainservice.StammdatenService;
 import org.example.infrastructure.drivenadapter.persistence.FahrradRepositoryImpl;
 
+import java.util.Properties;
+
 public class Main {
     @SuppressWarnings("java:S106")
     public static void main(String[] args) {
-        FahrradRepository fahrradRepository = new FahrradRepositoryImpl();
+        FahrradRepository fahrradRepository = new FahrradRepositoryImpl(new Properties());
         FahrradVerwaltung fahrradVerwaltung = new FahrradVerwaltung(fahrradRepository);
         StammdatenService stammdatenService = new StammdatenService(fahrradRepository);
         stammdatenService.initStammdaten();
