@@ -1,5 +1,6 @@
 package org.example.infrastructure.drivenadapter.persistence;
 
+import io.jexxa.addend.infrastructure.DrivenAdapter;
 import io.jexxa.infrastructure.RepositoryManager;
 import io.jexxa.infrastructure.persistence.repository.IRepository;
 import org.example.domain.Fahrrad;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+@DrivenAdapter
 public class FahrradRepositoryImpl implements FahrradRepository {
 
     private final List<Fahrrad> fahrradVerwaltungsListe = new ArrayList<>();

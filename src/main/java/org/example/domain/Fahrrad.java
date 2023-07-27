@@ -1,7 +1,11 @@
 package org.example.domain;
 
+import io.jexxa.addend.applicationcore.Aggregate;
+import io.jexxa.addend.applicationcore.AggregateID;
+
 import java.util.Objects;
 
+@Aggregate
 public class Fahrrad {
     private final int reifengroesse;
     private final String rahmen;

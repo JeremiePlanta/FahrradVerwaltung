@@ -1,11 +1,13 @@
 package org.example.applicationservice;
 
+import io.jexxa.addend.applicationcore.ApplicationService;
 import org.example.domain.Fahrrad;
 import org.example.domain.FahrradRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationService
 public class FahrradVerwaltung {
     private final FahrradRepository fahrradVerwaltungsListe ;
 

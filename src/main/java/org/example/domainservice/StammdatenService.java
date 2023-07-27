@@ -1,10 +1,12 @@
 package org.example.domainservice;
 
+import io.jexxa.addend.applicationcore.DomainService;
 import org.example.domain.Fahrrad;
 import org.example.domain.FahrradRepository;
 
 import java.util.List;
 
+@DomainService
 public class StammdatenService {
     private static final Fahrrad cross = new Fahrrad(27,"Aluminium","Cross","32357545454");
     private static final Fahrrad mtb = new Fahrrad(27,"Aluminium","MTB","435436336");
