@@ -5,6 +5,7 @@ import io.jexxa.infrastructure.RepositoryManager;
 import io.jexxa.infrastructure.persistence.repository.IRepository;
 import org.example.domain.Fahrrad;
 import org.example.domain.FahrradRepository;
+import org.example.domain.GestellNummer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Properties;
 public class FahrradRepositoryImpl implements FahrradRepository {
 
     private final List<Fahrrad> fahrradVerwaltungsListe = new ArrayList<>();
-    private final IRepository<Fahrrad,String> fahrradRepository;
+    private final IRepository<Fahrrad, GestellNummer> fahrradRepository;
 
     public FahrradRepositoryImpl(Properties properties){
         this.fahrradRepository = RepositoryManager.getRepository(Fahrrad.class, Fahrrad::getGestellnummer,properties);
@@ -30,7 +31,7 @@ public class FahrradRepositoryImpl implements FahrradRepository {
     }
 
     @Override
-    public void remove(Fahrrad fahrrad) {
-        this.fahrradRepository.remove(fahrrad.getGestellnummer());
+    public void remove(GestellNummer gestellNummer) {
+        this.fahrradRepository.remove(gestellNummer);
     }
 }

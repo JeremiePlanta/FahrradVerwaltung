@@ -1,41 +1,39 @@
 package org.example.domain;
 
 import io.jexxa.addend.applicationcore.Aggregate;
+import io.jexxa.addend.applicationcore.AggregateID;
 
 import java.util.Objects;
 
 @Aggregate
 public class Fahrrad {
-    private final int reifengroesse;
-    private final String rahmen;
-    private final String typ;
+    private final FahrradDaten fahrradDaten;
+    private final GestellNummer gestellNummer;
 
-    private final String gestellnummer;
+    public Fahrrad(GestellNummer gestellNummer, FahrradDaten fahrradDaten) {
+        this.gestellNummer = gestellNummer;
+        this.fahrradDaten = fahrradDaten;
 
-    public Fahrrad(int reifengroesse, String rahmen, String typ, String gestellnummer) {
-        this.reifengroesse = reifengroesse;
-        this.rahmen = rahmen;
-        this.typ = typ;
-        this.gestellnummer = gestellnummer;
     }
 
     @SuppressWarnings("unused")
     public int getReifengroesse() {
-        return reifengroesse;
+        return fahrradDaten.reifengroesse();
     }
     @SuppressWarnings("unused")
     public String getRahmen() {
-        return rahmen;
+        return fahrradDaten.rahmen();
     }
 
     @SuppressWarnings("unused")
     public String getTyp() {
-        return typ;
+        return fahrradDaten.typ();
     }
 
     @SuppressWarnings("unused")
-    public String getGestellnummer() {
-        return gestellnummer;
+    @AggregateID
+    public GestellNummer getGestellnummer() {
+        return gestellNummer;
     }
 
     @Override
@@ -43,11 +41,7 @@ public class Fahrrad {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Fahrrad fahrrad = (Fahrrad) o;
-        return reifengroesse == fahrrad.reifengroesse && Objects.equals(rahmen, fahrrad.rahmen) && Objects.equals(typ, fahrrad.typ) && Objects.equals(gestellnummer, fahrrad.gestellnummer);
+        return Objects.equals(gestellNummer, fahrrad.gestellNummer);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(reifengroesse, rahmen, typ, gestellnummer);
-    }
 }

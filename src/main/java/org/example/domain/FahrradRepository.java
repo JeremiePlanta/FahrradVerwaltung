@@ -9,7 +9,7 @@ public interface FahrradRepository {
 
     List<Fahrrad> getAll();
 
-    void remove(Fahrrad fahrrad);
+    void remove(GestellNummer gestellNummer);
 
     void add(Fahrrad fahrrad);
 }
