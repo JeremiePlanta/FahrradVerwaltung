@@ -2,12 +2,9 @@ package org.example;
 
 import io.jexxa.core.JexxaMain;
 import io.jexxa.drivingadapter.rest.RESTfulRPCAdapter;
-import org.example.domain.FahrradRepository;
 import org.example.applicationservice.FahrradVerwaltung;
 import org.example.domainservice.StammdatenService;
-import org.example.infrastructure.drivenadapter.persistence.FahrradRepositoryImpl;
 
-import java.util.Properties;
 
 public class Main {
     @SuppressWarnings("java:S106")
