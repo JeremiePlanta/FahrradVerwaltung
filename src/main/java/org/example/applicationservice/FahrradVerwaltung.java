@@ -1,10 +1,7 @@
 package org.example.applicationservice;
 
 import io.jexxa.addend.applicationcore.ApplicationService;
-import org.example.domain.Fahrrad;
-import org.example.domain.FahrradDaten;
-import org.example.domain.FahrradRepository;
-import org.example.domain.GestellNummer;
+import org.example.domain.*;
 
 import java.util.List;
 
@@ -26,5 +23,11 @@ public class FahrradVerwaltung {
                 .stream()
                 .map(Fahrrad::getGestellnummer)
                 .toList();
+    }
+    public void registriere(GestellNummer gestellNummer, FahrradDaten fahrradDaten, EmailAdresse emailAdresse){
+
+    }
+    public void verifiziere(EmailAdresse emailAdresse, VerifizierungsCode verifizierungsCode){
+
     }
 }
