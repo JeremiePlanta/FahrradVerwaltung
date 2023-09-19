@@ -9,8 +9,11 @@ import java.util.List;
 public class FahrradVerwaltung {
     private final FahrradRepository fahrradVerwaltungsListe ;
 
-    public  FahrradVerwaltung(FahrradRepository fahrradRepository){
+    private final RegistrierungsDatenRepository registrierungsDatenRepository;
+
+    public  FahrradVerwaltung(FahrradRepository fahrradRepository, RegistrierungsDatenRepository registrierungsDatenRepository){
         this.fahrradVerwaltungsListe = fahrradRepository;
+        this.registrierungsDatenRepository = registrierungsDatenRepository;
     }
     public void add(GestellNummer gestellNummer, FahrradDaten fahrradDaten){
         fahrradVerwaltungsListe.add(new Fahrrad(gestellNummer, fahrradDaten));
@@ -25,9 +28,13 @@ public class FahrradVerwaltung {
                 .toList();
     }
     public void registriere(GestellNummer gestellNummer, FahrradDaten fahrradDaten, EmailAdresse emailAdresse){
-
+        registrierungsDatenRepository.add(new RegistrierungsDaten(gestellNummer, fahrradDaten, emailAdresse));
     }
-    public void verifiziere(EmailAdresse emailAdresse, VerifizierungsCode verifizierungsCode){
+    public void verifiziere(GestellNummer gestellNummer, VerifizierungsCode verifizierungsCode) throws UngueltigerVerifizierungsCode {
+        RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(gestellNummer);
+        registrierungsDaten.verifiziere(verifizierungsCode);
 
+        add(gestellNummer, registrierungsDaten.getFahrradDaten());
+        registrierungsDatenRepository.remove(gestellNummer);
     }
 }
