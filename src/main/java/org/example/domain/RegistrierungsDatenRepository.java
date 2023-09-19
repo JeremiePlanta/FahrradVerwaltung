@@ -3,6 +3,7 @@ package org.example.domain;
 import io.jexxa.addend.applicationcore.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface RegistrierungsDatenRepository {
@@ -13,5 +14,5 @@ public interface RegistrierungsDatenRepository {
 
     void remove(GestellNummer gestellNummer);
 
-    RegistrierungsDaten get(GestellNummer gestellNummer);
+    Optional<RegistrierungsDaten> get(GestellNummer gestellNummer);
 }

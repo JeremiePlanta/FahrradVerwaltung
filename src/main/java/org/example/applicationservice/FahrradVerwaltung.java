@@ -31,7 +31,7 @@ public class FahrradVerwaltung {
         registrierungsDatenRepository.add(new RegistrierungsDaten(gestellNummer, fahrradDaten, emailAdresse));
     }
     public void verifiziere(GestellNummer gestellNummer, VerifizierungsCode verifizierungsCode) throws UngueltigerVerifizierungsCode {
-        RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(gestellNummer);
+        RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(gestellNummer).orElseThrow();
         registrierungsDaten.verifiziere(verifizierungsCode);
 
         add(gestellNummer, registrierungsDaten.getFahrradDaten());
