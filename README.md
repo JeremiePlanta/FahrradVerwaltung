@@ -15,7 +15,7 @@ Dieses Projekt soll folgende Funktionalität anbieten:
 Abbildung auf DDD Mustersprache und Klassen:
 ApplicationService: FahrradVerwaltung
  Neue Methoden: registriere und verifiziere
-ValueObjects: E-Mail-Adresse, KontaktDaten, VerifizierungsCode
+ValueObjects: E-Mail-Adresse, VerifizierungsCode
 Aggregate: RegistrierungsDaten, Fahrrad
 Repository: RegistrierungsDatenRepository
 DomaintEvent: VerifizierungsCodeVerschickt
