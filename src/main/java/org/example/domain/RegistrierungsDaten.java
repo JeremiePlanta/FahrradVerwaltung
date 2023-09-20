@@ -22,6 +22,7 @@ public class RegistrierungsDaten {
         this.fahrradDaten = fahrradDaten;
         this.emailAdresse = emailAdresse;
         this.verifizierungsCode = new VerifizierungsCode(UUID.randomUUID().toString());
+        sendVerifizierungsCode();
     }
 
     public void verifiziere(VerifizierungsCode verifizierungsCode) throws UngueltigerVerifizierungsCode {
