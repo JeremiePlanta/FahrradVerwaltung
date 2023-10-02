@@ -13,7 +13,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <jexxa.release.version>6.1.6</jexxa.release.version>
+        <jexxa.release.version>6.2.0</jexxa.release.version>
 
         <postgres.version>42.6.0</postgres.version>
 

@@ -7,12 +7,15 @@ import java.util.Objects;
 
 @Aggregate
 public class Fahrrad {
-    private final FahrradDaten fahrradDaten;
+    private FahrradDaten fahrradDaten;
     private final GestellNummer gestellNummer;
 
-    public Fahrrad(GestellNummer gestellNummer, FahrradDaten fahrradDaten) {
+    private final EmailAdresse emailAdresse;
+
+    public Fahrrad(GestellNummer gestellNummer, FahrradDaten fahrradDaten, EmailAdresse emailAdresse) {
         this.gestellNummer = gestellNummer;
         this.fahrradDaten = fahrradDaten;
+        this.emailAdresse = emailAdresse;
 
     }
 
@@ -42,6 +45,9 @@ public class Fahrrad {
         if (o == null || getClass() != o.getClass()) return false;
         Fahrrad fahrrad = (Fahrrad) o;
         return Objects.equals(gestellNummer, fahrrad.gestellNummer);
+    }
+    public void aktualisiere(FahrradDaten fahrradDaten){
+        this.fahrradDaten = fahrradDaten;
     }
 
 }

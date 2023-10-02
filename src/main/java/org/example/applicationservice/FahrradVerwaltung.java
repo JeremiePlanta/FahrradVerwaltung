@@ -15,11 +15,18 @@ public class FahrradVerwaltung {
         this.fahrradVerwaltungsListe = fahrradRepository;
         this.registrierungsDatenRepository = registrierungsDatenRepository;
     }
-    public void add(GestellNummer gestellNummer, FahrradDaten fahrradDaten){
-        fahrradVerwaltungsListe.add(new Fahrrad(gestellNummer, fahrradDaten));
+    public void add(GestellNummer gestellNummer, FahrradDaten fahrradDaten, EmailAdresse emailAdresse){
+        fahrradVerwaltungsListe.add(new Fahrrad(gestellNummer, fahrradDaten,emailAdresse));
     }
     public void delete(GestellNummer gestellNummer){
         fahrradVerwaltungsListe.remove(gestellNummer);
+    }
+
+    public void aktualisiere(GestellNummer gestellNummer, FahrradDaten fahrradDaten, EmailAdresse emailAdresse){
+        Fahrrad fahrrad = fahrradVerwaltungsListe.get(gestellNummer).orElseThrow();
+
+        fahrrad.aktualisiere(fahrradDaten);
+        fahrradVerwaltungsListe.update(fahrrad);
     }
     public List<GestellNummer> get(){
         return fahrradVerwaltungsListe.getAll()
@@ -34,7 +41,7 @@ public class FahrradVerwaltung {
         RegistrierungsDaten registrierungsDaten = registrierungsDatenRepository.get(gestellNummer).orElseThrow();
         registrierungsDaten.verifiziere(verifizierungsCode);
 
-        add(gestellNummer, registrierungsDaten.getFahrradDaten());
+        add(gestellNummer, registrierungsDaten.getFahrradDaten(), registrierungsDaten.getEmailAdresse());
         registrierungsDatenRepository.remove(gestellNummer);
     }
 }

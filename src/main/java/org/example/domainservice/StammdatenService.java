@@ -1,10 +1,7 @@
 package org.example.domainservice;
 
 import io.jexxa.addend.applicationcore.DomainService;
-import org.example.domain.Fahrrad;
-import org.example.domain.FahrradDaten;
-import org.example.domain.FahrradRepository;
-import org.example.domain.GestellNummer;
+import org.example.domain.*;
 
 import java.util.List;
 
@@ -18,9 +15,9 @@ public class StammdatenService {
     }
 
     public void initStammdaten(){
-        final Fahrrad cross = new Fahrrad(new GestellNummer("32357545454"),new FahrradDaten(27,"Aluminium","Cross"));
-        final Fahrrad mtb = new Fahrrad(new GestellNummer("435436336"),new FahrradDaten(28,"Aluminium","MTB"));
-        final Fahrrad rennrad = new Fahrrad(new GestellNummer("352354455"),new FahrradDaten(28,"Carbon","Rennrad"));
+        final Fahrrad cross = new Fahrrad(new GestellNummer("32357545454"),new FahrradDaten(27,"Aluminium","Cross"), new EmailAdresse("dfgfdgd@.fgfdg.dfs"));
+        final Fahrrad mtb = new Fahrrad(new GestellNummer("435436336"),new FahrradDaten(28,"Aluminium","MTB"),new EmailAdresse("dfgfdgd@.fgfdg.dfs"));
+        final Fahrrad rennrad = new Fahrrad(new GestellNummer("352354455"),new FahrradDaten(28,"Carbon","Rennrad"),new EmailAdresse("dfgfdgd@.fgfdg.dfs"));
 
         List<Fahrrad> alleFahrraeder = fahrradRepository.getAll();
 

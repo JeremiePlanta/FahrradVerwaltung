@@ -9,6 +9,7 @@ import org.example.domain.GestellNummer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
 @DrivenAdapter
@@ -28,6 +29,16 @@ public class FahrradRepositoryImpl implements FahrradRepository {
     @Override
     public void add(Fahrrad fahrrad) {
         this.fahrradRepository.add(fahrrad);
+    }
+
+    @Override
+    public void update(Fahrrad fahrrad) {
+        this.fahrradRepository.update(fahrrad);
+    }
+
+    @Override
+    public Optional<Fahrrad> get(GestellNummer gestellNummer) {
+        return fahrradRepository.get(gestellNummer);
     }
 
     @Override
